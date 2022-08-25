@@ -135,7 +135,7 @@ ChatBotPanelDialog::~ChatBotPanelDialog()
     //// STUDENT CODE
     ////
 
-    // delete _chatLogic; // deleted automatically by smart pointer
+    // delete _chatLogic; // would be deleted automatically by smart pointer
 
     ////
     //// EOF STUDENT CODE
