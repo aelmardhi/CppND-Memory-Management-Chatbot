@@ -27,24 +27,47 @@ ChatBot::ChatBot(std::string filename)
     _rootNode = nullptr;
 
     // load image into heap memory
-    _image = new wxBitmap(filename, wxBITMAP_TYPE_PNG);
+    _image = std::make_unique<wxBitmap> (filename, wxBITMAP_TYPE_PNG);
 }
 
 ChatBot::~ChatBot()
 {
     std::cout << "ChatBot Destructor" << std::endl;
 
+    // wuld be deleted automatically
     // deallocate heap memory
-    if(_image != NULL) // Attention: wxWidgets used NULL and not nullptr
-    {
-        delete _image;
-        _image = NULL;
-    }
+    // if(_image != NULL) // Attention: wxWidgets used NULL and not nullptr
+    // {
+    //     delete _image;
+    //     _image = NULL;
+    // }
 }
 
 //// STUDENT CODE
 ////
 
+    ChatBot::ChatBot(ChatBot&& src){
+        std::cout << "ChatBot Move Constructor" << std::endl;
+        // move data handles
+        _chatLogic = src._chatLogic;
+        _rootNode = src._rootNode;
+        _image = std::move(src._image);
+        // invalidate source data handles
+        src._chatLogic = nullptr;
+        src._rootNode = nullptr;
+    }
+    
+    ChatBot& ChatBot::operator= (ChatBot&& src){
+        std::cout << "ChatBot Move Assignment Operator" << std::endl;
+        // move data handles
+        _chatLogic = src._chatLogic;
+        _rootNode = src._rootNode;
+        _image = std::move(src._image);
+        // invalidate source data handles
+        src._chatLogic = nullptr;
+        src._rootNode = nullptr;
+        return *this;
+    }
 ////
 //// EOF STUDENT CODE
 
