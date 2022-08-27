@@ -50,6 +50,7 @@ ChatBot::~ChatBot()
         std::cout << "ChatBot Move Constructor" << std::endl;
         // move data handles
         _chatLogic = src._chatLogic;
+        _chatLogic->SetChatbotHandle(this);
         _rootNode = src._rootNode;
         _image = std::move(src._image);
         // invalidate source data handles
@@ -61,6 +62,7 @@ ChatBot::~ChatBot()
         std::cout << "ChatBot Move Assignment Operator" << std::endl;
         // move data handles
         _chatLogic = src._chatLogic;
+        _chatLogic->SetChatbotHandle(this);
         _rootNode = src._rootNode;
         _image = std::move(src._image);
         // invalidate source data handles
