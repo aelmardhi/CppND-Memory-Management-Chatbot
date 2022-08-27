@@ -34,13 +34,6 @@ ChatLogic::~ChatLogic()
 
     // delete chatbot instance
     delete _chatBot;
- 
-    // no need owned by nodes
-    // delete all edges 
-    // for (auto it = std::begin(_edges); it != std::end(_edges); ++it)
-    // {
-    //     delete *it;
-    // }
 
     ////
     //// EOF STUDENT CODE
@@ -158,7 +151,6 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
                             std::unique_ptr<GraphEdge> edge = std::make_unique<GraphEdge>(id);
                             edge->SetChildNode((*childNode).get());
                             edge->SetParentNode((*parentNode).get());
-                            // _edges.push_back(edge); //no need for edges
 
                             // find all keywords for current node
                             AddAllTokensToElement("KEYWORD", tokens, *edge);
