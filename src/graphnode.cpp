@@ -11,8 +11,6 @@ GraphNode::~GraphNode()
     //// STUDENT CODE
     ////
 
-    // delete _chatBot;  // chatlogic will delete it
-
     ////
     //// EOF STUDENT CODE
 }
@@ -43,8 +41,6 @@ void GraphNode::MoveChatbotHere(ChatBot chatbot)
 void GraphNode::MoveChatbotToNewNode(GraphNode *newNode)
 {
     newNode->MoveChatbotHere(std::move(_chatBot));
-    //no need move will do that
-    // _chatBot = nullptr; // invalidate pointer at source 
 }
 ////
 //// EOF STUDENT CODE
