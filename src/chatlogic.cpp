@@ -27,10 +27,6 @@ ChatLogic::~ChatLogic()
     //// STUDENT CODE
     ////
 
-    //not managed by chatLogic
-    // delete chatbot instance
-    // delete _chatBot;
-
     ////
     //// EOF STUDENT CODE
 }
