@@ -32,7 +32,8 @@ public:
     ////
     ChatBot(ChatBot& src) = delete ;
     ChatBot(ChatBot&& src);
-    
+    // there should only be one chatbot, so not allowed to copy the 
+    // object only to move it 
     ChatBot& operator= (ChatBot& src) = delete;
     ChatBot& operator= (ChatBot&& src);
     ////
